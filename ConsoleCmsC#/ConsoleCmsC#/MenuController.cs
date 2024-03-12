@@ -9,9 +9,12 @@ namespace ConsoleCmsCS
     public class MenuController
     {
         public List<Employee> Employees { get; set; }
+        public Templates Templates { get; set; }
 
         public MenuController()
         {
+            this.Templates = new Templates();
+
             Employees = new List<Employee> {
                 new Employee(1, "Jade Burgess", "CEO", 50000.00m),
                 new Employee(2, "Wes Erasmus", "Intern", 5000.00m),
@@ -21,29 +24,11 @@ namespace ConsoleCmsCS
             };
         }
 
-        public string DisplayMainMenu()
-        {
-            return "" +
-                "----- Main Menu -----\n\n" +
-                "1) add employee \n" +
-                "2) terminate employee \n" +
-                "3) assign new role \n" +
-                "4) increase / decrease salary \n" +
-            "";
+        public void renderMenu() {
+            Console.WriteLine(this.Templates.MainMenuTemplate());
+            Console.WriteLine("");
+            Console.WriteLine(this.Templates.EmployeeTableTemplate(this.Employees));
         }
-
-        public string DisplayEmployeeTable(List<Employee> employees)
-        {
-            string menuString = "";
-
-            foreach (Employee employee in employees)
-            {
-                menuString += employee.employeeToString();
-            }
-            //Console.WriteLine(menuString);
-            return " " +
-                "----- Employee List -----\n" +
-                "ID: \t| Employee Name: \t\t| Role: \n" + menuString;
-        }
+   
     }
 }

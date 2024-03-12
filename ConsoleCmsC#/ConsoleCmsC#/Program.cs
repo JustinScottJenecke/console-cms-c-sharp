@@ -7,7 +7,8 @@
             Console.WriteLine("========== Management CMS ==========\n");
             MenuController menu = new MenuController();
 
-            Console.WriteLine( menu.DisplayEmployeeTable(menu.Employees) );
+            menu.renderMenu();
+
         }
     }
 

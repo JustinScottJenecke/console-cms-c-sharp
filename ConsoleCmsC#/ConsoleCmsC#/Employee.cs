@@ -21,8 +21,9 @@ namespace ConsoleCmsCS
             this.Salary = amount;
         }
 
-        public string employeeToString() {
-            return $" {this.EmployeeId}) \t| {this.Name} \t\t\t| {this.Role} \t R.s{this.Salary} \n";
+        public string employeeToString() 
+        {
+            return $" {this.EmployeeId}) \t| {this.Name} \t\t\t| {this.Role} \t\t R{this.Salary} \n";
         }
     }
 }
