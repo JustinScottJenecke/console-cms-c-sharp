@@ -21,6 +21,17 @@ namespace ConsoleCmsCS
             };
         }
 
+        public string DisplayMainMenu()
+        {
+            return "" +
+                "----- Main Menu -----\n\n" +
+                "1) add employee \n" +
+                "2) terminate employee \n" +
+                "3) assign new role \n" +
+                "4) increase / decrease salary \n" +
+            "";
+        }
+
         public string DisplayEmployeeTable(List<Employee> employees)
         {
             string menuString = "";
