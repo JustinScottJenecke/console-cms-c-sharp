@@ -11,16 +11,18 @@ namespace ConsoleCmsCS
         private int EmployeeId { get; set;}
         private string Name { get; set; }
         private string Role { get; set; }
+        private decimal Salary { get; set; }
 
-        public Employee(int eID, string name, string role)
+        public Employee(int eID, string name, string role, decimal amount)
         {
             this.EmployeeId = eID;
             this.Name = name;
             this.Role = role;
+            this.Salary = amount;
         }
 
         public string employeeToString() {
-            return $" {this.EmployeeId}) \t|\t {this.Name} \t\t|\t {this.Role}";
+            return $" {this.EmployeeId}) \t| {this.Name} \t\t\t| {this.Role} \t R.s{this.Salary} \n";
         }
     }
 }

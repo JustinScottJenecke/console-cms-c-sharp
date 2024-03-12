@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Management CMS");
-            Employee employee1 = new Employee(1, "Jade Burgess", "Intern");
+            Console.WriteLine("========== Management CMS ==========\n");
+            MenuController menu = new MenuController();
 
-            Console.WriteLine( employee1.employeeToString() );
+            Console.WriteLine( menu.DisplayEmployeeTable(menu.Employees) );
         }
     }
 
