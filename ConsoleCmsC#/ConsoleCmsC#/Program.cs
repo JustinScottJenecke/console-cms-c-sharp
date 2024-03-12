@@ -2,13 +2,20 @@
 {
     class Program
     {
+        static int STATE = 0;
         static void Main(string[] args)
         {
-            Console.WriteLine("========== Management CMS ==========\n");
+
             MenuController menu = new MenuController();
 
-            menu.renderMenu();
+            Console.WriteLine("========== Management CMS ==========\n");
 
+            switch (STATE)
+            {
+                case 0:
+                    menu.StartupMenu();
+                    break;
+            }
         }
     }
 
