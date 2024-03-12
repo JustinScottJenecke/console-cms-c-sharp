@@ -7,7 +7,6 @@
             Console.WriteLine("Management CMS");
             Employee employee1 = new Employee(1, "Jade Burgess", "Intern");
 
-            Console.WriteLine( Employee.employeeDisplayHeaderRow() );
             Console.WriteLine( employee1.employeeToString() );
         }
     }

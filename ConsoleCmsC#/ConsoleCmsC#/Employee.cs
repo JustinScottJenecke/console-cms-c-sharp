@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleCmsCS
 {
-    class Employee
+    public class Employee
     {
         private int EmployeeId { get; set;}
         private string Name { get; set; }
@@ -19,10 +19,6 @@ namespace ConsoleCmsCS
             this.Role = role;
         }
 
-        public static string employeeDisplayHeaderRow()
-        {
-            return " ID: \t|\t Employee Name: \t|\t Role:";
-        }
         public string employeeToString() {
             return $" {this.EmployeeId}) \t|\t {this.Name} \t\t|\t {this.Role}";
         }
