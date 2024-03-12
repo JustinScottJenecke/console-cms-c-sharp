@@ -21,10 +21,10 @@ namespace ConsoleCmsCS
 
         public static string employeeDisplayHeaderRow()
         {
-            return " ID): \t|\t Employee Name: \t|\t Role:";
+            return " ID: \t|\t Employee Name: \t|\t Role:";
         }
         public string employeeToString() {
-            return $" {this.EmployeeId}) \t|\t {this.Name} \t|\t {this.Role}";
+            return $" {this.EmployeeId}) \t|\t {this.Name} \t\t|\t {this.Role}";
         }
     }
 }
