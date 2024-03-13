@@ -16,6 +16,7 @@ namespace ConsoleCmsCS
                 "2) terminate employee \n" +
                 "3) assign new role \n" +
                 "4) increase / decrease salary \n" +
+                "10) Exit program \n" +
             "";
         }
 

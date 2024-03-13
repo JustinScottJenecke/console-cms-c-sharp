@@ -33,7 +33,7 @@ namespace ConsoleCmsCS
 
         }
 
-        public void AddEmployee(List<Employee> employees)
+        public int AddEmployee(List<Employee> employees)
         {
             int phase = 1;
 
@@ -92,14 +92,13 @@ namespace ConsoleCmsCS
                 }
             }
 
+            employees.Add( new Employee(employees.Count(), newName, newRole, newSalary) );
+
             Console.Clear();
-            Console.WriteLine(new Employee(
-                employees.Count, 
-                newName, 
-                newRole, 
-                newSalary
-                )
-                .employeeToString());
+            Console.WriteLine("Employee Added Successfully");
+            Console.ReadKey();
+
+            return 0;
         }
 
     }
