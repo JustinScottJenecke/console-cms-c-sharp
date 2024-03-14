@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,8 @@ namespace ConsoleCmsCS
 
         }
 
-        public void StartupMenu() {
+        public void StartupMenu() 
+        {
 
             Console.WriteLine(this.Templates.EmployeeTableTemplate(this.Employees));
             Console.WriteLine("");
@@ -37,6 +39,7 @@ namespace ConsoleCmsCS
         {
             int phase = 1;
 
+            int newId = 0;
             string newName = "";
             string newRole = "";
             decimal newSalary = 0m;
@@ -61,6 +64,43 @@ namespace ConsoleCmsCS
             while (phase == 2)
             {
                 Console.Clear();
+                Console.Write("Enter new employee ID: )");
+
+                bool noDuplicates = false;
+
+                if (Int32.TryParse(Console.ReadLine(), out newId))
+                {
+                    foreach (var employee in employees)
+                    {
+                        // checks if id already exists and breaks out if loop if IdAlready == true
+                        // leave noDuplicates as false since Id is already in use
+                        if (employee.IdAlreadyExists(newId))
+                        {
+                            noDuplicates = false;
+                            break;
+                        }
+                    }
+
+                    if (noDuplicates)
+                    {
+                        Console.WriteLine("Id was set");
+                        phase++;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Id of {newId} already in use. Please enter another Id");
+                        Console.ReadKey();
+                    }
+                }
+                else {
+                    Console.WriteLine("Error: Id has to be a number");
+                    Console.ReadKey();
+                }
+            }
+
+            while (phase == 3)
+            {
+                Console.Clear();
                 Console.Write("Enter new employee role: ");
                 newRole = Console.ReadLine();
 
@@ -75,7 +115,7 @@ namespace ConsoleCmsCS
                 }
             }
 
-            while (phase == 3)
+            while (phase == 4)
             {
                 Console.Clear();
                 Console.Write("Enter new employee monthly salary: ");
@@ -92,7 +132,7 @@ namespace ConsoleCmsCS
                 }
             }
 
-            employees.Add( new Employee(employees.Count(), newName, newRole, newSalary) );
+            employees.Add( new Employee(newId, newName, newRole, newSalary) );
 
             Console.Clear();
             Console.WriteLine("Employee Added Successfully");

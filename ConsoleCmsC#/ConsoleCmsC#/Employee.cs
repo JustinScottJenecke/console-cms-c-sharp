@@ -21,6 +21,11 @@ namespace ConsoleCmsCS
             this.Salary = amount;
         }
 
+        public bool IdAlreadyExists(int idInput) 
+        {
+            return idInput == this.EmployeeId ? true : false;
+        }
+
         public string employeeToString() 
         {
             return $" {this.EmployeeId}) \t| {this.Name} \t\t\t| {this.Role} \t\t R{this.Salary} \n";
