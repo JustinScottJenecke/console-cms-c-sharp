@@ -21,6 +21,14 @@ namespace ConsoleCmsCS
             this.Salary = amount;
         }
 
+        /// <summary>
+        ///     Accepts int value as input and compares input against id of existing EmployeeId
+        ///     to check if the id is already taken by and existing Employee object
+        ///     
+        ///     Returns true if id is taken, and returns false if id is available
+        /// </summary>
+        /// <param name="idInput"></param>
+        /// <returns></returns>
         public bool IdAlreadyExists(int idInput) 
         {
             return idInput == this.EmployeeId ? true : false;

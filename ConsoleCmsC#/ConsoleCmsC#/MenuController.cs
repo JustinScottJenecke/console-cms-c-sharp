@@ -64,16 +64,16 @@ namespace ConsoleCmsCS
             while (phase == 2)
             {
                 Console.Clear();
-                Console.Write("Enter new employee ID: )");
+                Console.Write("Enter new employee ID: ");
 
-                bool noDuplicates = false;
+                bool noDuplicates = true; // initially assume there are no duplicates
 
                 if (Int32.TryParse(Console.ReadLine(), out newId))
                 {
+                    // checks if id already exists and breaks out if loop if IdAlreadyExists == true
+                    // leave noDuplicates as false since Id is already in use
                     foreach (var employee in employees)
                     {
-                        // checks if id already exists and breaks out if loop if IdAlready == true
-                        // leave noDuplicates as false since Id is already in use
                         if (employee.IdAlreadyExists(newId))
                         {
                             noDuplicates = false;
